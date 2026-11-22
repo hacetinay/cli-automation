@@ -17,6 +17,12 @@ export class LoginPage {
     await this.page.goto(loginUrl.toString());
   }
 
+  async submitLoginForm(email: string, password: string): Promise<void> {
+    await this.emailField.fill(email);
+    await this.passwordField.fill(password);
+    await this.signInButton.click();
+  }
+
   async assertPageTitle(title: string): Promise<void> {
     await expect(this.page).toHaveTitle(title);
   }

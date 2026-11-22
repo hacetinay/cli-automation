@@ -10,6 +10,7 @@ import {
 import { chromium, Browser } from "playwright";
 import { CustomWorld } from "./world";
 import { LoginPage } from "../../pages/loginPage";
+import { DashboardPage } from "../../pages/dashboardPage";
 import { environment } from "../../../src/config/environment";
 
 let browser: Browser | undefined;
@@ -33,11 +34,14 @@ Before(async function (this: CustomWorld) {
   this.page = await this.context.newPage();
 
   this.loginPage = new LoginPage(this.page);
+  this.dashboardPage = new DashboardPage(this.page);
 });
 
 After(async function (this: CustomWorld, scenario) {
   try {
-    if (scenario.result?.status === Status.FAILED && this.page) {
+    // Authenticated pages can contain personal data or credentials.
+    const isAuthenticated = scenario.pickle.tags.some(tag => tag.name === "@authenticated");
+    if (scenario.result?.status === Status.FAILED && this.page && !isAuthenticated) {
       const screenshot = await this.page.screenshot();
 
       await this.attach(screenshot, {

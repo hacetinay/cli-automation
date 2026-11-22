@@ -12,6 +12,7 @@ import {
 } from "playwright";
 
 import { LoginPage } from "../../pages/loginPage";
+import { DashboardPage } from "../../pages/dashboardPage";
 
 export class CustomWorld extends World {
   browser!: Browser;
@@ -19,6 +20,7 @@ export class CustomWorld extends World {
   page!: Page;
 
   loginPage!: LoginPage;
+  dashboardPage!: DashboardPage;
 
   constructor(options: IWorldOptions) {
     super(options);
