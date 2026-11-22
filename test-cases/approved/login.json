@@ -1,0 +1,115 @@
+{
+  "featureId": "FEAT-LOGIN-001",
+  "feature": "Public login page",
+  "sourceRequirements": [],
+  "scenarios": [
+    {
+      "id": "TC-LOGIN-001",
+      "title": "Visitor sees the public sign-in form",
+      "type": "positive",
+      "status": "approved",
+      "preconditions": [
+        "The public login page is available."
+      ],
+      "tags": [
+        "@regression",
+        "@positive"
+      ],
+      "testData": {
+        "url": "https://zinctm.cydeo.io/login"
+      },
+      "given": [
+        "The public login page is available."
+      ],
+      "when": [
+        "A visitor opens the sign-in page."
+      ],
+      "then": [
+        "The page title is \"Sign in — ZincTM\".",
+        "The page displays the \"ZincALM\" heading.",
+        "The sign-in form presents Email and Password fields.",
+        "The sign-in form offers a \"Sign in\" action.",
+        "The Email and Password fields are empty on initial load."
+      ],
+      "expectedResults": [
+        "The rendered title is \"Sign in — ZincTM\".",
+        "The ZincALM heading, Email and Password fields, and Sign in action are present on the initial page.",
+        "Both credential fields are empty on initial load."
+      ],
+      "evidence": [
+        {
+          "source": "application-analysis/pages/P-LOGIN.md",
+          "classification": "observed",
+          "detail": "The title, heading, Email and Password fields, and Sign in button were observed; both fields were empty on initial load."
+        },
+        {
+          "source": "application-analysis/reports/login-page-snapshot.yml",
+          "classification": "observed",
+          "detail": "The accessibility snapshot records the visible heading, empty textboxes, and Sign in button."
+        },
+        {
+          "source": "application-analysis/workflows/W-LOGIN-01.md",
+          "classification": "observed",
+          "detail": "The public page loaded at the supplied URL; the workflow stopped before any form interaction."
+        }
+      ],
+      "assumptions": [],
+      "openQuestions": [
+        "Which approved product requirement or acceptance criterion should this observed-page characterization trace to?"
+      ]
+    },
+    {
+      "id": "TC-LOGIN-002",
+      "title": "Sign-in form identifies both credentials as required",
+      "type": "positive",
+      "status": "approved",
+      "preconditions": [
+        "The public login page is available."
+      ],
+      "tags": [
+        "@regression",
+        "@positive"
+      ],
+      "testData": {},
+      "given": [
+        "A visitor is on the public login page."
+      ],
+      "when": [
+        "The visitor views the initial sign-in form."
+      ],
+      "then": [
+        "The Email field is required and uses email input semantics.",
+        "The Password field is required and uses password input semantics."
+      ],
+      "expectedResults": [
+        "The Email input is configured as required with email input semantics.",
+        "The Password input is configured as required with password input semantics."
+      ],
+      "evidence": [
+        {
+          "source": "application-analysis/pages/P-LOGIN.md",
+          "classification": "observed",
+          "detail": "The Email input is type=email and required; the Password input is type=password and required. No form submission or validation response was tested."
+        },
+        {
+          "source": "application-analysis/elements/E-LOGIN.md",
+          "classification": "observed",
+          "detail": "Both credential inputs and their required states and input types are documented from page inspection."
+        }
+      ],
+      "assumptions": [],
+      "openQuestions": [
+        "Which approved product requirement or acceptance criterion confirms the intended required credential fields?",
+        "What should happen after submitting valid credentials?",
+        "What should happen after empty or malformed credentials are submitted? No validation or submission behavior was observed, so no outcomes are asserted here.",
+        "Does the empty alert node in the accessibility snapshot represent any intended user-visible feedback?"
+      ]
+    }
+  ],
+  "coverageGaps": [
+    "No product requirements, user stories, or acceptance criteria were found in the supplied project materials; requirement traceability is pending clarification.",
+    "Successful and unsuccessful submission, empty-field submission, email-format validation, alert content, and post-authentication navigation were not explored and are excluded rather than assigned expected results.",
+    "The form's observed method is GET with action /login. This markup observation does not establish intended credential handling; do not add a submission scenario until expected behavior and an approved synthetic test setup are confirmed.",
+    "An empty alert node appears in the accessibility snapshot, but its source and purpose are unknown; no alert behavior is asserted."
+  ]
+}

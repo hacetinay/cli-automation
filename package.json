@@ -1,0 +1,32 @@
+{
+  "name": "cli-automation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "pw:test": "npx playwright test",
+    "test:headed": "npx playwright test --headed",
+    "test:ui": "npx playwright test --ui",
+    "test:debug": "npx playwright test --debug",
+    "test:report": "npx playwright show-report",
+    "test:trace": "npx playwright test --trace on",
+    "cucumber": "cucumber-js",
+    "cucumber:smoke": "cucumber-js --tags @smoke",
+    "cucumber:regression": "cucumber-js --tags @regression",
+    "cucumber:parallel": "cucumber-js --parallel 4",
+    "cucumber:headed": "cross-env HEADLESS=false cucumber-js",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "devDependencies": {
+    "@cucumber/cucumber": "^13.3.0",
+    "@playwright/test": "^1.65.1",
+    "@types/node": "^26.6.6",
+    "cross-env": "^10.1.0",
+    "dotenv": "^18.0.10",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.9.3"
+  }
+}

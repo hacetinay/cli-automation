@@ -1,0 +1,241 @@
+[
+  {
+    "description": "  Characterize the observed initial state of the public ZincTM sign-in page.",
+    "elements": [
+      {
+        "description": "",
+        "id": "public-login-page;visitor-sees-the-public-sign-in-form",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "Visitor sees the public sign-in form",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 536191299
+            },
+            "keyword": "Before",
+            "hidden": true
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 768299
+            },
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "the public login page is available",
+            "match": {
+              "location": "tests\\step-definitions\\login.steps.ts:8"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 1737812299
+            },
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "a visitor opens the sign-in page",
+            "match": {
+              "location": "tests\\step-definitions\\login.steps.ts:12"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 104255400
+            },
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "the page title is \"Sign in — ZincTM\"",
+            "match": {
+              "location": "tests\\step-definitions\\login.steps.ts:16"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 22595300
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "the page displays the \"ZincALM\" heading",
+            "match": {
+              "location": "tests\\step-definitions\\login.steps.ts:23"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 17727800
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "the sign-in form presents Email and Password fields",
+            "match": {
+              "location": "tests\\step-definitions\\login.steps.ts:30"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 12050999
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "the sign-in form offers a \"Sign in\" action",
+            "match": {
+              "location": "tests\\step-definitions\\login.steps.ts:37"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 19292400
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 13,
+            "name": "the Email and Password fields are empty on initial load",
+            "match": {
+              "location": "tests\\step-definitions\\login.steps.ts:44"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 64061700
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@TC-LOGIN-001",
+            "line": 5
+          },
+          {
+            "name": "@positive",
+            "line": 5
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "public-login-page;sign-in-form-identifies-both-credentials-as-required",
+        "keyword": "Scenario",
+        "line": 16,
+        "name": "Sign-in form identifies both credentials as required",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 431253999
+            },
+            "keyword": "Before",
+            "hidden": true
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 940031600
+            },
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 17,
+            "name": "a visitor is on the public login page",
+            "match": {
+              "location": "tests\\step-definitions\\login.steps.ts:51"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 129627699
+            },
+            "arguments": [],
+            "keyword": "When ",
+            "line": 18,
+            "name": "the visitor views the initial sign-in form",
+            "match": {
+              "location": "tests\\step-definitions\\login.steps.ts:58"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 23547800
+            },
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 19,
+            "name": "the Email field is required and uses email input semantics",
+            "match": {
+              "location": "tests\\step-definitions\\login.steps.ts:65"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 19301400
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 20,
+            "name": "the Password field is required and uses password input semantics",
+            "match": {
+              "location": "tests\\step-definitions\\login.steps.ts:72"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 27252400
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@TC-LOGIN-002",
+            "line": 15
+          },
+          {
+            "name": "@positive",
+            "line": 15
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "public-login-page",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "Public login page",
+    "tags": [
+      {
+        "name": "@regression",
+        "line": 1
+      }
+    ],
+    "uri": "tests\\features\\login.feature"
+  }
+]

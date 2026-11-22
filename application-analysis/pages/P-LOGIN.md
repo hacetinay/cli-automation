@@ -1,0 +1,25 @@
+# P-LOGIN — Public sign-in page
+
+- **Human-readable name:** ZincTM sign-in
+- **URL pattern:** `https://zinctm.cydeo.io/login`
+- **Entry/navigation path (observed):** Direct navigation to the user-provided URL.
+- **Environment:** Public page on `zinctm.cydeo.io`. The repository Playwright config has no active `baseURL` (the localhost example is commented out); this revisit used the exact URL supplied by the user. The `.env` file was not opened.
+- **Main visible regions (observed):**
+  - Main content area with heading “ZincALM”.
+  - Introductory text describing a QA workspace for ZincBank.
+  - Sign-in form with Email and Password fields and a “Sign in” button.
+  - Supporting privacy/sign-in instruction below the form.
+- **Important states (observed):**
+  - Initial page loaded, both fields visually empty.
+  - Email input is `type=email`, required, and has `autocomplete=email`.
+  - Password input is `type=password`, required, and has `autocomplete=current-password`.
+  - The Playwright accessibility snapshot includes an empty `alert` node. A read-only DOM query found no explicit `[role]` or `[aria-live]` elements; the source/semantics of that snapshot node were not established.
+  - The rendered page title is “Sign in — ZincTM”.
+  - No links were present in the inspected DOM.
+- **Related workflow:** [W-LOGIN-01 — Inspect public sign-in page](../workflows/W-LOGIN-01.md)
+- **Evidence:**
+  - [Initial accessibility snapshot](../reports/login-page-snapshot.yml)
+  - [Initial viewport screenshot](../reports/login-page.png)
+  - Read-only DOM observation on revisit: form action resolves to `/login`, method is `get`; inputs have `data-testid` values `login-email` and `login-password`, associated labels “Email” and “Password”, `required`, and the expected autocomplete values; submit button has `data-testid=login-submit`. Inputs were empty and have no placeholder.
+- **Confidence:** Page title, URL, visible content, field types/required flags, associated labels, test IDs, form attributes, accessibility-snapshot `alert` node, and absence of anchors are **observed** from the running page. The alert node's DOM implementation and purpose are **unknown**. Other application pages and post-submit behavior are **not observed**.
+- **Not explored:** No navigation beyond this public login page; no authenticated pages, form submissions, credential entry, or alternate account/recovery paths were explored.

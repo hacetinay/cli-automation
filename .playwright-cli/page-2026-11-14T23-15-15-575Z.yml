@@ -1,0 +1,14 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - heading "ZincALM" [level=1] [ref=e3]
+    - paragraph [ref=e4]: Your QA workspace for ZincBank — requirements, test cases, automation coverage, runs and the bug lifecycle.
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - generic [ref=e7]: Email
+        - textbox "Email" [ref=e8]
+      - generic [ref=e9]:
+        - generic [ref=e10]: Password
+        - textbox "Password" [ref=e11]
+      - button "Sign in" [ref=e12]
+    - paragraph [ref=e13]: Sign in with the same email and password you use for ZincBank. Your workspace is private to you.
+  - alert [ref=e14]
