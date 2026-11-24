@@ -11,6 +11,7 @@ import { chromium, Browser } from "playwright";
 import { CustomWorld } from "./world";
 import { LoginPage } from "../../pages/loginPage";
 import { DashboardPage } from "../../pages/dashboardPage";
+import { BoardPage } from "../../pages/boardPage";
 import { environment } from "../../../src/config/environment";
 
 let browser: Browser | undefined;
@@ -35,6 +36,7 @@ Before(async function (this: CustomWorld) {
 
   this.loginPage = new LoginPage(this.page);
   this.dashboardPage = new DashboardPage(this.page);
+  this.boardPage = new BoardPage(this.page);
 });
 
 After(async function (this: CustomWorld, scenario) {

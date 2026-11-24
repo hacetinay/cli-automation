@@ -1,19 +1,19 @@
-# Application exploration report — ZincTM public login
+# Application exploration report — ZincTM
 
 ## Summary
 
-Revisited the user-specified public login URL `https://zinctm.cydeo.io/login` using Playwright CLI. The page loaded as “Sign in — ZincTM”. Findings cover the initial visible page only; no login attempt or protected content access was performed. Existing snapshot and screenshot files were refreshed in place; no duplicate evidence files were created.
+Revisited the public login page and, on 2026-11-23, explored the authenticated board using Playwright CLI. Board access used the locally configured account; credential values are not recorded. See [P-BOARD](../pages/P-BOARD.md), [E-BOARD](../elements/E-BOARD.md), and [W-BOARD-01](../workflows/W-BOARD-01.md).
 
 ## Pages
 
-- **Explored:** [P-LOGIN — Public sign-in page](../pages/P-LOGIN.md).
-- **Not explored:** Any other page, authenticated area, recovery/account-creation path, or destination after form submission. No additional public navigation links appeared in the inspected DOM.
-- **Environment:** No active repository `baseURL` is configured; the commented config example points to localhost. The user supplied the external URL for this revisit. `.env` contents were not inspected.
+- **Explored:** [P-LOGIN — Public sign-in page](../pages/P-LOGIN.md) and [P-BOARD — Authenticated board](../pages/P-BOARD.md).
+- **Not explored:** Other authenticated destinations, recovery/account-creation paths, post-submit validation, and individual board records.
+- **Environment:** `src/config/environment.ts` defaults `BASE_URL` to `https://zinctm.cydeo.io`. The board was reached with the locally configured account; credentials are not included in evidence.
 
 ## Workflows
 
-- **Explored:** [W-LOGIN-01 — Inspect the public sign-in page](../workflows/W-LOGIN-01.md).
-- **Not explored:** Login submission, validation responses, authenticated workflows, and navigation to other pages.
+- **Explored:** [W-LOGIN-01 — Inspect the public sign-in page](../workflows/W-LOGIN-01.md) and [W-BOARD-01 — Open the board](../workflows/W-BOARD-01.md).
+- **Not explored:** Sign-in failure paths, board filtering behavior, individual record destinations, or data-changing workflows.
 
 ## Important elements and locator quality
 
@@ -23,6 +23,7 @@ Revisited the user-specified public login URL `https://zinctm.cydeo.io/login` us
 - Intro and supporting paragraphs have no observed test IDs; text locators are possible but depend on copy stability.
 - The snapshot includes an empty accessibility-tree `alert` node, but no explicit `[role]` or `[aria-live]` element was found in the DOM query. Its implementation and purpose are unclear; verify before relying on an alert locator.
 - Full details and element-specific recommendations are in [E-LOGIN](../elements/E-LOGIN.md).
+- The board filter, six status columns, and visible card affordance are documented in [E-BOARD](../elements/E-BOARD.md). The common header and sidebar controls are also catalogued in [E-DASHBOARD](../elements/E-DASHBOARD.md).
 
 ## Evidence and confidence
 
@@ -32,9 +33,10 @@ Revisited the user-specified public login URL `https://zinctm.cydeo.io/login` us
 - The absence of explicit `[role]`/`[aria-live]` DOM attributes is also observed. Any role/alert semantics beyond the accessibility snapshot are **unknown**.
 - Form behavior after submission and any server-side/authentication rules are **unknown**, not inferred from the form markup.
 - The rendered copy claims the workspace is private and references ZincBank; these are visible statements, not independently verified privacy or account policies.
+- The board page title, filter label and placeholder, column labels/test IDs, and presence of a linked card in the Open column were observed. Card identifiers and content were intentionally omitted; no board screenshot or raw snapshot was retained.
 
 ## Blockers, boundaries, and recommended next exploration
 
-- **Blocker:** Authentication-dependent pages and all post-submit outcomes remain unexplored within the requested safe scope. Invalid-input behavior is also unknown because no values were entered and the form was not submitted.
-- **Boundary respected:** No credentials entered; no form submission, auth bypass, protected-route probing, or data changes. Browser session closed.
-- **Recommended next exploration:** The current public-page evidence is sufficient for review by the Test Scenario Designer as observation only. If authenticated behavior is needed, obtain explicit scope and an approved test account/environment, then explore that area separately. Investigate the accessibility alert node only if error-state behavior becomes in scope; keep its purpose unassumed until then.
+- **Blocker:** Sign-in failure behavior and other authenticated pages remain unexplored. Board filtering, record details, and card actions were not exercised.
+- **Boundary respected:** The locally configured account was used to sign in. No credentials were recorded; no board record was opened and no data was created, changed, or deleted. The browser remains on the board.
+- **Recommended next exploration:** The board's visible structure is ready for scenario review. Further exploration of filtering or individual records should use approved test data and avoid changing account data. The login accessibility alert remains unverified as an error-state element.

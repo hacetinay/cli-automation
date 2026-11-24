@@ -1,0 +1,116 @@
+{
+  "featureId": "FEAT-BOARD-001",
+  "feature": "Authenticated defect board",
+  "sourceRequirements": [],
+  "scenarios": [
+    {
+      "id": "TC-BOARD-001",
+      "title": "Signed-in user opens the board",
+      "type": "positive",
+      "status": "approved",
+      "preconditions": ["An approved test account is signed in on the dashboard."],
+      "tags": ["@regression", "@TC-BOARD-001", "@positive"],
+      "testData": {},
+      "given": ["An approved test account is signed in on the dashboard."],
+      "when": ["The user opens Board from project navigation."],
+      "then": ["The browser is at \"/board\".", "The page title is \"Board — ZincTM\".", "The page displays the \"Board\" heading."],
+      "expectedResults": ["Selecting Board from project navigation opens /board with the observed title and heading."],
+      "evidence": [
+        {
+          "source": "application-analysis/workflows/W-BOARD-01.md",
+          "classification": "observed",
+          "detail": "After sign-in, selecting the Board navigation link opened /board with title Board — ZincTM."
+        },
+        {
+          "source": "application-analysis/pages/P-BOARD.md",
+          "classification": "observed",
+          "detail": "The authenticated board page title and Board heading were observed."
+        }
+      ],
+      "assumptions": [],
+      "openQuestions": ["Which approved product requirement defines the intended authenticated route to the board?"]
+    },
+    {
+      "id": "TC-BOARD-002",
+      "title": "Board presents the observed defect status columns",
+      "type": "positive",
+      "status": "approved",
+      "preconditions": ["An approved test account is signed in and the board is open."],
+      "tags": ["@regression", "@TC-BOARD-002", "@positive"],
+      "testData": {},
+      "given": ["An approved test account is signed in on the board."],
+      "when": ["The user views the board."],
+      "then": ["The board presents the \"new\", \"open\", \"in progress\", \"fixed\", \"retest\", and \"closed\" status columns."],
+      "expectedResults": ["All six status columns observed during exploration are presented without asserting account-specific card counts or contents."],
+      "evidence": [
+        {
+          "source": "application-analysis/pages/P-BOARD.md",
+          "classification": "observed",
+          "detail": "The six status columns were visible on the authenticated board."
+        },
+        {
+          "source": "application-analysis/elements/E-BOARD.md",
+          "classification": "observed",
+          "detail": "Each status column and its observed label is documented in the element inventory."
+        }
+      ],
+      "assumptions": [],
+      "openQuestions": ["Are all six columns required for every project and user role?"]
+    },
+    {
+      "id": "TC-BOARD-003",
+      "title": "Board presents an empty defect filter",
+      "type": "positive",
+      "status": "approved",
+      "preconditions": ["An approved test account is signed in and the board is open with no filter text entered."],
+      "tags": ["@regression", "@TC-BOARD-003", "@positive"],
+      "testData": {},
+      "given": ["An approved test account is signed in on the board."],
+      "when": ["The user views the board before entering a filter."],
+      "then": ["The board presents an empty \"Filter defects\" field.", "The field shows the placeholder \"Filter by key, summary or label…\"."],
+      "expectedResults": ["The observed enabled filter field is initially empty and displays its observed placeholder."],
+      "evidence": [
+        {
+          "source": "application-analysis/elements/E-BOARD.md",
+          "classification": "observed",
+          "detail": "The enabled board-filter textbox was empty and exposed the label Filter defects and the recorded placeholder."
+        }
+      ],
+      "assumptions": [],
+      "openQuestions": ["What matching behavior, clear behavior, and no-results response should be expected when users enter a filter?"]
+    },
+    {
+      "id": "TC-BOARD-004",
+      "title": "Unauthenticated visitor is redirected from the board",
+      "type": "negative",
+      "status": "approved",
+      "preconditions": ["The browser has no authenticated session."],
+      "tags": ["@regression", "@TC-BOARD-004", "@negative"],
+      "testData": {},
+      "given": ["The browser has no authenticated session."],
+      "when": ["The visitor opens the board directly."],
+      "then": ["The sign-in page is displayed at \"/login\".", "The page title is \"Sign in — ZincTM\"."],
+      "expectedResults": ["Direct navigation to /board without an authenticated session redirects to the observed sign-in page."],
+      "evidence": [
+        {
+          "source": "application-analysis/workflows/W-BOARD-01.md",
+          "classification": "observed",
+          "detail": "Direct navigation without an authenticated session ended at /login."
+        },
+        {
+          "source": "application-analysis/pages/P-BOARD.md",
+          "classification": "observed",
+          "detail": "The unauthenticated redirect to the sign-in page was observed; authenticated board state was inspected separately."
+        }
+      ],
+      "assumptions": [],
+      "openQuestions": ["Is redirecting every unauthenticated board visit to /login the intended access-control behavior?"]
+    }
+  ],
+  "coverageGaps": [
+    "No board-specific product requirements or acceptance criteria were supplied; these cases characterize observed behavior and have no requirement IDs.",
+    "Filter matching, clearing, no-results behavior, and boundary inputs were not explored and are not asserted.",
+    "Card navigation, status transitions, drag-and-drop, permissions, and persistence were not explored.",
+    "Account-specific card identifiers, contents, and counts are intentionally not asserted."
+  ]
+}

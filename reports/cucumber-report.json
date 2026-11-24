@@ -1,18 +1,18 @@
 [
   {
-    "description": "  Characterize the observed initial state of the public ZincTM sign-in page.",
+    "description": "  Characterize the observed access and visible structure of the board.",
     "elements": [
       {
         "description": "",
-        "id": "public-login-page;visitor-sees-the-public-sign-in-form",
+        "id": "authenticated-defect-board;signed-in-user-opens-the-board",
         "keyword": "Scenario",
-        "line": 6,
-        "name": "Visitor sees the public sign-in form",
+        "line": 7,
+        "name": "Signed-in user opens the board",
         "steps": [
           {
             "result": {
               "status": "passed",
-              "duration": 203797700
+              "duration": 83839833
             },
             "keyword": "Before",
             "hidden": true
@@ -20,98 +20,72 @@
           {
             "result": {
               "status": "passed",
-              "duration": 367799
+              "duration": 2491207457
             },
             "arguments": [],
             "keyword": "Given ",
-            "line": 7,
-            "name": "the public login page is available",
+            "line": 8,
+            "name": "an approved test account is signed in on the dashboard",
             "match": {
-              "location": "tests\\step-definitions\\login.steps.ts:8"
+              "location": "tests/step-definitions/board.steps.ts:20"
             }
           },
           {
             "result": {
               "status": "passed",
-              "duration": 968476300
+              "duration": 48172916
             },
             "arguments": [],
             "keyword": "When ",
-            "line": 8,
-            "name": "a visitor opens the sign-in page",
+            "line": 9,
+            "name": "the user opens Board from project navigation",
             "match": {
-              "location": "tests\\step-definitions\\login.steps.ts:12"
+              "location": "tests/step-definitions/board.steps.ts:30"
             }
           },
           {
             "result": {
               "status": "passed",
-              "duration": 71146600
+              "duration": 1832870875
             },
             "arguments": [],
             "keyword": "Then ",
-            "line": 9,
-            "name": "the page title is \"Sign in — ZincTM\"",
-            "match": {
-              "location": "tests\\step-definitions\\login.steps.ts:16"
-            }
-          },
-          {
-            "result": {
-              "status": "passed",
-              "duration": 15791400
-            },
-            "arguments": [],
-            "keyword": "And ",
             "line": 10,
-            "name": "the page displays the \"ZincALM\" heading",
+            "name": "the browser is at \"/board\"",
             "match": {
-              "location": "tests\\step-definitions\\login.steps.ts:23"
+              "location": "tests/step-definitions/board.steps.ts:42"
             }
           },
           {
             "result": {
               "status": "passed",
-              "duration": 12686800
+              "duration": 6606000
             },
             "arguments": [],
             "keyword": "And ",
             "line": 11,
-            "name": "the sign-in form presents Email and Password fields",
+            "name": "the page title is \"Board — ZincTM\"",
             "match": {
-              "location": "tests\\step-definitions\\login.steps.ts:30"
+              "location": "tests/step-definitions/login.steps.ts:16"
             }
           },
           {
             "result": {
               "status": "passed",
-              "duration": 15521200
+              "duration": 8554291
             },
             "arguments": [],
             "keyword": "And ",
             "line": 12,
-            "name": "the sign-in form offers a \"Sign in\" action",
+            "name": "the page displays the \"Board\" heading",
             "match": {
-              "location": "tests\\step-definitions\\login.steps.ts:37"
+              "location": "tests/step-definitions/login.steps.ts:23"
             }
           },
           {
             "result": {
               "status": "passed",
-              "duration": 17176999
-            },
-            "arguments": [],
-            "keyword": "And ",
-            "line": 13,
-            "name": "the Email and Password fields are empty on initial load",
-            "match": {
-              "location": "tests\\step-definitions\\login.steps.ts:44"
-            }
-          },
-          {
-            "result": {
-              "status": "passed",
-              "duration": 17329099
+              "duration": 10289917
             },
             "keyword": "After",
             "hidden": true
@@ -120,30 +94,34 @@
         "tags": [
           {
             "name": "@regression",
-            "line": 1
+            "line": 2
           },
           {
-            "name": "@TC-LOGIN-001",
-            "line": 5
+            "name": "@authenticated",
+            "line": 6
+          },
+          {
+            "name": "@TC-BOARD-001",
+            "line": 6
           },
           {
             "name": "@positive",
-            "line": 5
+            "line": 6
           }
         ],
         "type": "scenario"
       },
       {
         "description": "",
-        "id": "public-login-page;sign-in-form-identifies-both-credentials-as-required",
+        "id": "authenticated-defect-board;board-presents-the-observed-defect-status-columns",
         "keyword": "Scenario",
-        "line": 16,
-        "name": "Sign-in form identifies both credentials as required",
+        "line": 15,
+        "name": "Board presents the observed defect status columns",
         "steps": [
           {
             "result": {
               "status": "passed",
-              "duration": 103815799
+              "duration": 56119124
             },
             "keyword": "Before",
             "hidden": true
@@ -151,59 +129,46 @@
           {
             "result": {
               "status": "passed",
-              "duration": 732815200
+              "duration": 3592084290
             },
             "arguments": [],
             "keyword": "Given ",
-            "line": 17,
-            "name": "a visitor is on the public login page",
+            "line": 16,
+            "name": "an approved test account is signed in on the board",
             "match": {
-              "location": "tests\\step-definitions\\login.steps.ts:51"
+              "location": "tests/step-definitions/board.steps.ts:22"
             }
           },
           {
             "result": {
               "status": "passed",
-              "duration": 70711000
+              "duration": 11852084
             },
             "arguments": [],
             "keyword": "When ",
-            "line": 18,
-            "name": "the visitor views the initial sign-in form",
+            "line": 17,
+            "name": "the user views the board",
             "match": {
-              "location": "tests\\step-definitions\\login.steps.ts:58"
+              "location": "tests/step-definitions/board.steps.ts:34"
             }
           },
           {
             "result": {
               "status": "passed",
-              "duration": 17167000
+              "duration": 33622624
             },
             "arguments": [],
             "keyword": "Then ",
-            "line": 19,
-            "name": "the Email field is required and uses email input semantics",
+            "line": 18,
+            "name": "the board presents the \"new\", \"open\", \"in progress\", \"fixed\", \"retest\", and \"closed\" status columns",
             "match": {
-              "location": "tests\\step-definitions\\login.steps.ts:65"
+              "location": "tests/step-definitions/board.steps.ts:46"
             }
           },
           {
             "result": {
               "status": "passed",
-              "duration": 17160700
-            },
-            "arguments": [],
-            "keyword": "And ",
-            "line": 20,
-            "name": "the Password field is required and uses password input semantics",
-            "match": {
-              "location": "tests\\step-definitions\\login.steps.ts:72"
-            }
-          },
-          {
-            "result": {
-              "status": "passed",
-              "duration": 14634799
+              "duration": 3373999
             },
             "keyword": "After",
             "hidden": true
@@ -212,30 +177,222 @@
         "tags": [
           {
             "name": "@regression",
-            "line": 1
+            "line": 2
           },
           {
-            "name": "@TC-LOGIN-002",
-            "line": 15
+            "name": "@authenticated",
+            "line": 14
+          },
+          {
+            "name": "@TC-BOARD-002",
+            "line": 14
           },
           {
             "name": "@positive",
-            "line": 15
+            "line": 14
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "authenticated-defect-board;board-presents-an-empty-defect-filter",
+        "keyword": "Scenario",
+        "line": 21,
+        "name": "Board presents an empty defect filter",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 47475250
+            },
+            "keyword": "Before",
+            "hidden": true
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 2913805749
+            },
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 22,
+            "name": "an approved test account is signed in on the board",
+            "match": {
+              "location": "tests/step-definitions/board.steps.ts:22"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 8275499
+            },
+            "arguments": [],
+            "keyword": "When ",
+            "line": 23,
+            "name": "the user views the board",
+            "match": {
+              "location": "tests/step-definitions/board.steps.ts:34"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 9963750
+            },
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 24,
+            "name": "the board presents an empty \"Filter defects\" field",
+            "match": {
+              "location": "tests/step-definitions/board.steps.ts:61"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 7045458
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 25,
+            "name": "the field shows the placeholder \"Filter by key, summary or label…\"",
+            "match": {
+              "location": "tests/step-definitions/board.steps.ts:66"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 5538875
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@regression",
+            "line": 2
+          },
+          {
+            "name": "@authenticated",
+            "line": 20
+          },
+          {
+            "name": "@TC-BOARD-003",
+            "line": 20
+          },
+          {
+            "name": "@positive",
+            "line": 20
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "authenticated-defect-board;unauthenticated-visitor-is-redirected-from-the-board",
+        "keyword": "Scenario",
+        "line": 28,
+        "name": "Unauthenticated visitor is redirected from the board",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 52837749
+            },
+            "keyword": "Before",
+            "hidden": true
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 147000
+            },
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 29,
+            "name": "the browser has no authenticated session",
+            "match": {
+              "location": "tests/step-definitions/board.steps.ts:28"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 439683584
+            },
+            "arguments": [],
+            "keyword": "When ",
+            "line": 30,
+            "name": "the visitor opens the board directly",
+            "match": {
+              "location": "tests/step-definitions/board.steps.ts:38"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 29368333
+            },
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 31,
+            "name": "the sign-in page is displayed at \"/login\"",
+            "match": {
+              "location": "tests/step-definitions/board.steps.ts:70"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 3356417
+            },
+            "arguments": [],
+            "keyword": "And ",
+            "line": 32,
+            "name": "the page title is \"Sign in — ZincTM\"",
+            "match": {
+              "location": "tests/step-definitions/login.steps.ts:16"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 5266125
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@regression",
+            "line": 2
+          },
+          {
+            "name": "@TC-BOARD-004",
+            "line": 27
+          },
+          {
+            "name": "@negative",
+            "line": 27
           }
         ],
         "type": "scenario"
       }
     ],
-    "id": "public-login-page",
-    "line": 2,
+    "id": "authenticated-defect-board",
+    "line": 3,
     "keyword": "Feature",
-    "name": "Public login page",
+    "name": "Authenticated defect board",
     "tags": [
       {
         "name": "@regression",
-        "line": 1
+        "line": 2
       }
     ],
-    "uri": "tests\\features\\login.feature"
+    "uri": "tests/features/board.feature"
   }
 ]

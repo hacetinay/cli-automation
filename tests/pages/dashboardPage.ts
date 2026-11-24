@@ -53,6 +53,14 @@ export class DashboardPage {
     }
   }
 
+  async openBoardFromProjectNavigation(): Promise<void> {
+    const boardLink = this.page
+      .getByRole("navigation", { name: "Project" })
+      .getByTestId("nav-board");
+    await expect(boardLink).toBeVisible();
+    await boardLink.click();
+  }
+
   async assertControls(names: string[]): Promise<void> {
     for (const name of names) {
       const testId = controlTestIds[name];

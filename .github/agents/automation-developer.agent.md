@@ -90,6 +90,13 @@ npm test
 
 Use the repository's actual scripts and package manager. Report exact commands and outcomes. If a command cannot run because of missing dependencies, configuration, environment, or credentials, state that clearly.
 
+### 6. Approved status synchronization
+
+- After implementation is complete and the required validation commands have run, synchronize the JSON status for each scenario actually automated from its source pair in `test-cases/approved/` to `"approved"`.
+- Match scenarios by their stable IDs. Do not change statuses for scenarios that were not implemented, and never modify files under `test-cases/pending-approval/`.
+- Treat `status` as the human approval state, not a test result. Report pass/fail validation separately; do not change the approval status based on whether a test passed.
+- If implementation is blocked or incomplete, leave the source JSON statuses unchanged and report the blocker.
+
 ## Completion report
 
 Summarize:
@@ -99,6 +106,7 @@ Summarize:
 - Locator strategy and any CSS exceptions.
 - Isolation and hook lifecycle approach.
 - Validation commands and actual results.
+- Approval statuses synchronized for the implemented scenarios, when applicable.
 - Remaining blockers, assumptions, and unimplemented scenarios.
 
 Do not claim success for tests that were not executed.
